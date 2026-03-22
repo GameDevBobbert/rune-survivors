@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dpt7hub0xp5eb"]
+
+[ext_resource type="Script" uid="uid://lecbufb35px4" path="res://actors/enemies/spawner/spawner.gd" id="1_vxctc"]
+[ext_resource type="PackedScene" uid="uid://ci666xtrnw7sl" path="res://actors/enemies/enemy_1/enemy_1.tscn" id="2_ew8g2"]
+
+[node name="Spawner" type="Node2D" unique_id=404899821]
+script = ExtResource("1_vxctc")
+enemy_scene = ExtResource("2_ew8g2")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1114453589]

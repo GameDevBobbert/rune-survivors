@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://by3n4jbqh5n68"]
+
+[ext_resource type="Texture2D" uid="uid://ws04rfu6fyw1" path="res://actors/player/images.png" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dk2mmqtfsltmt" path="res://actors/player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://decsjf41gamm5" path="res://actors/components/movement_component.gd" id="3_6p1w3"]
+[ext_resource type="Script" uid="uid://dmtlts7dkfixj" path="res://actors/components/health_component.gd" id="4_15y17"]
+[ext_resource type="Script" uid="uid://bpf0ufqu82314" path="res://actors/components/combat_component.gd" id="5_bop6h"]
+[ext_resource type="Script" uid="uid://bkuws7ynyv0vd" path="res://actors/components/projectile_component.gd" id="6_15y17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(24, 17)
+
+[node name="Player" type="CharacterBody2D" unique_id=1206554783 groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_rkbax")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=809197037]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_oul6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=292007964]
+shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=2127701050]
+script = ExtResource("3_6p1w3")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=110861754]
+script = ExtResource("4_15y17")
+
+[node name="CombatComponent" type="Node" parent="." unique_id=2055263697]
+script = ExtResource("5_bop6h")
+
+[node name="ProjectileComponent" type="Node" parent="." unique_id=1084447826]
+script = ExtResource("6_15y17")
+
+[node name="FireTimer" type="Timer" parent="ProjectileComponent" unique_id=1640236853]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ci666xtrnw7sl"]
+
+[ext_resource type="Script" uid="uid://qsgdd7relkjl" path="res://actors/enemies/enemy_1/enemy_1.gd" id="1_0opex"]
+[ext_resource type="Script" uid="uid://decsjf41gamm5" path="res://actors/components/movement_component.gd" id="2_2ab7u"]
+[ext_resource type="Script" uid="uid://dmtlts7dkfixj" path="res://actors/components/health_component.gd" id="3_5a328"]
+[ext_resource type="Script" uid="uid://bpf0ufqu82314" path="res://actors/components/combat_component.gd" id="4_10qq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0opex"]
+size = Vector2(38, 38)
+
+[node name="Enemy1" type="CharacterBody2D" unique_id=399262253]
+collision_layer = 4
+script = ExtResource("1_0opex")
+stop_distance = null
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=479679177]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1141536517]
+script = ExtResource("2_2ab7u")
+speed = 25.0
+
+[node name="HealthComponent" type="Node" parent="." unique_id=997495933]
+script = ExtResource("3_5a328")
+
+[node name="CombatComponent" type="Node" parent="." unique_id=536882464]
+script = ExtResource("4_10qq0")
+damage = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900989862]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_0opex")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=818844275]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1567598557]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_0opex")

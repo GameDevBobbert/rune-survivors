@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://by3n4jbqh5n68"]
+
+[ext_resource type="Texture2D" uid="uid://ws04rfu6fyw1" path="res://player/images.png" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dk2mmqtfsltmt" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://bm1m5vr4fc60o" path="res://enemies/enemy_1/components/movement_component.gd" id="3_qjkh3"]
+[ext_resource type="Script" uid="uid://34s448t66pg" path="res://player/components/health_component.gd" id="4_qjkh3"]
+[ext_resource type="Script" uid="uid://d0p1qik1ecnq5" path="res://player/components/combat_component.gd" id="5_g6k8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(25, 17)
+
+[node name="Player" type="CharacterBody2D" unique_id=1206554783]
+script = ExtResource("1_rkbax")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=809197037]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_oul6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=292007964]
+shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=2127701050]
+script = ExtResource("3_qjkh3")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=110861754]
+script = ExtResource("4_qjkh3")
+
+[node name="CombatComponent" type="Node" parent="." unique_id=2055263697]
+script = ExtResource("5_g6k8r")

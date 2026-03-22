@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cebeyl21v2xg8"]
+
+[ext_resource type="Script" uid="uid://bh6fgwr1cpewl" path="res://world/ground/ground.gd" id="1_mvgdv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvgdv"]
+size = Vector2(1152, 648)
+
+[node name="Ground" type="StaticBody2D" unique_id=1482086987]
+collision_mask = 0
+script = ExtResource("1_mvgdv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1443399122]
+visible = false
+position = Vector2(2049, 604)
+shape = SubResource("RectangleShape2D_mvgdv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=513420951]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.82916945, 0.93392634, 0.47960955, 1)
