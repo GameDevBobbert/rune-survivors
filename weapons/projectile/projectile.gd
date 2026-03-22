@@ -11,6 +11,7 @@ func _ready() -> void:
 func setup(dir: Vector2, speed: float, dmg: float) -> void:
 	velocity = dir * speed
 	damage = dmg
+	rotation = dir.angle()
 
 func _physics_process(delta: float) -> void:
 	global_position += velocity * delta

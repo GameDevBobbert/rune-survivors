@@ -16,31 +16,46 @@ func _on_fire_timer_timeout() -> void:
 	shoot()
 
 func shoot() -> void:
-	#print("PEW")
-	
 	if projectile_scene == null:
-		print("No projectile_scene assigned")
 		return
 
-	var enemy = get_tree().get_first_node_in_group("enemy")
+	var enemy = get_nearest_enemy()
 	if enemy == null:
 		print("No enemy found")
 		return
-		
+
 	var projectile := projectile_scene.instantiate() as Projectile
 	if projectile == null:
-		print("Could not cast instantiated scene to Projectile")
 		return
-		
+
 	get_tree().current_scene.add_child(projectile)
 
 	var owner = get_parent() as Node2D
 	if owner == null:
-		print("Owner is not Node2D")
 		return
 
 	projectile.global_position = owner.global_position
-	#print("Projectile spawned at: ", projectile.global_position)
 
 	var direction = (enemy.global_position - projectile.global_position).normalized()
 	projectile.setup(direction, projectile_speed, projectile_damage)
+	
+func get_nearest_enemy() -> Enemy:
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	var nearest_enemy: Enemy = null
+	var nearest_distance := INF
+
+	var owner = get_parent() as Node2D
+	if owner == null:
+		return null
+
+	for node in enemies:
+		var enemy := node as Enemy
+		if enemy == null:
+			continue
+
+		var distance = owner.global_position.distance_to(enemy.global_position)
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest_enemy = enemy
+
+	return nearest_enemy
