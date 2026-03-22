@@ -8,9 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0opex"]
 size = Vector2(38, 38)
 
-[node name="Enemy1" type="CharacterBody2D" unique_id=399262253]
+[node name="Enemy1" type="CharacterBody2D" unique_id=399262253 groups=["enemy"]]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 10
 script = ExtResource("1_0opex")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=479679177]
@@ -36,8 +36,8 @@ shape = SubResource("RectangleShape2D_0opex")
 disabled = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=818844275]
-collision_layer = 8
-collision_mask = 2
+collision_layer = 20
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1567598557]
 position = Vector2(20, 20)

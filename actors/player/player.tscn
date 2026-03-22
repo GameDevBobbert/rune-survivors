@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dmtlts7dkfixj" path="res://actors/components/health_component.gd" id="4_15y17"]
 [ext_resource type="Script" uid="uid://bpf0ufqu82314" path="res://actors/components/combat_component.gd" id="5_bop6h"]
 [ext_resource type="Script" uid="uid://bkuws7ynyv0vd" path="res://actors/components/projectile_component.gd" id="6_15y17"]
+[ext_resource type="PackedScene" uid="uid://ddarfc3t6wdxl" path="res://weapons/projectile/projectile.tscn" id="7_bop6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(24, 17)
@@ -30,8 +31,11 @@ script = ExtResource("4_15y17")
 
 [node name="CombatComponent" type="Node" parent="." unique_id=2055263697]
 script = ExtResource("5_bop6h")
+damage = 5
 
 [node name="ProjectileComponent" type="Node" parent="." unique_id=1084447826]
 script = ExtResource("6_15y17")
+projectile_scene = ExtResource("7_bop6h")
+projectile_damage = 5.0
 
 [node name="FireTimer" type="Timer" parent="ProjectileComponent" unique_id=1640236853]

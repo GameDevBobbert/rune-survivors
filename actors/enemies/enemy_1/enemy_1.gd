@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	health.take_damage(amount)
+	print("Enemy took damage: ", amount)
 
 func _on_hitbox_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
@@ -56,4 +57,5 @@ func _on_damage_timer_timeout() -> void:
 		combat.deal_damage(player_in_hitbox)
 
 func _on_died() -> void:
+	print("Enemy died")
 	queue_free()

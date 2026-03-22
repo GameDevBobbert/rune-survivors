@@ -8,7 +8,7 @@ extends CharacterBody2D
 func _ready() -> void:
 	add_to_group("player")
 	health.died.connect(_on_died)
-
+	
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	movement.physics_update(self, direction, delta)

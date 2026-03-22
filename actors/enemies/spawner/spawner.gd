@@ -32,3 +32,6 @@ func spawn_enemy() -> void:
 
 	enemy.global_position = spawn_position
 	get_tree().current_scene.add_child(enemy)
+	
+	print("Spawned enemy!")
+	print(enemy.health.current_health)
