@@ -20,7 +20,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_bop6h")
 }],
-"loop": false,
+"loop": true,
 "name": &"down",
 "speed": 5.0
 }, {
@@ -28,7 +28,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_lsln6")
 }],
-"loop": false,
+"loop": true,
 "name": &"left",
 "speed": 5.0
 }, {
@@ -36,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_hiosj")
 }],
-"loop": false,
+"loop": true,
 "name": &"right",
 "speed": 5.0
 }, {
@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_ssdk0")
 }],
-"loop": false,
+"loop": true,
 "name": &"up",
 "speed": 5.0
 }]
@@ -54,14 +54,13 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_rkbax")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=809197037]
+texture_filter = 1
+texture = ExtResource("2_bop6h")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=292007964]
 position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_rkbax")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=112075361]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_bop6h")
-animation = &"down"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=2127701050]
 script = ExtResource("3_6p1w3")
@@ -79,3 +78,8 @@ projectile_scene = ExtResource("7_bop6h")
 projectile_damage = 5.0
 
 [node name="FireTimer" type="Timer" parent="ProjectileComponent" unique_id=1640236853]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=112075361]
+visible = false
+sprite_frames = SubResource("SpriteFrames_bop6h")
+animation = &"down"
