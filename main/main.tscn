@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cebeyl21v2xg8" path="res://world/ground/ground.tscn" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://by3n4jbqh5n68" path="res://actors/player/player.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://dpt7hub0xp5eb" path="res://actors/enemies/spawner/spawner.tscn" id="3_xwkvk"]
-[ext_resource type="Script" uid="uid://crqm1vt6x144i" path="res://ui/game_stats.gd" id="4_kfbq2"]
+[ext_resource type="Script" uid="uid://crqm1vt6x144i" path="res://ui/game_stats/game_stats.gd" id="4_kfbq2"]
 [ext_resource type="Script" uid="uid://bwj5ifw00pk0d" path="res://ui/ui.gd" id="5_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://dy40akjemvmb0" path="res://ui/inventory/inventory.tscn" id="6_kfbq2"]
 [ext_resource type="Script" uid="uid://jgb01ip36yul" path="res://ui/gold_popup/gold_popup_manager.gd" id="7_4dugh"]
