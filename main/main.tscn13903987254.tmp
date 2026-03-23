@@ -1,37 +1,17 @@
 [gd_scene format=3 uid="uid://oyq0pojdc8y4"]
 
-[ext_resource type="Texture2D" uid="uid://4u4g5x3cwm3q" path="res://world/ground/Dirt.png" id="2_grrlh"]
+[ext_resource type="PackedScene" uid="uid://cebeyl21v2xg8" path="res://world/ground/ground.tscn" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://by3n4jbqh5n68" path="res://actors/player/player.tscn" id="2_pjrb6"]
-[ext_resource type="Script" uid="uid://c2obu26geqikt" path="res://world/ground/ground.gd" id="3_grrlh"]
 [ext_resource type="PackedScene" uid="uid://dpt7hub0xp5eb" path="res://actors/enemies/spawner/spawner.tscn" id="3_xwkvk"]
 [ext_resource type="Script" uid="uid://crqm1vt6x144i" path="res://ui/game_stats/game_stats.gd" id="4_kfbq2"]
 [ext_resource type="Script" uid="uid://bwj5ifw00pk0d" path="res://ui/ui.gd" id="5_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://dy40akjemvmb0" path="res://ui/inventory/inventory.tscn" id="6_kfbq2"]
 [ext_resource type="Script" uid="uid://jgb01ip36yul" path="res://ui/gold_popup/gold_popup_manager.gd" id="7_4dugh"]
-[ext_resource type="Texture2D" uid="uid://cnp5u45dcnskm" path="res://world/ground/Ground.png" id="7_67ri8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grrlh"]
-texture = ExtResource("7_67ri8")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
+[node name="Main" type="Node" unique_id=354906407]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0i4oc"]
-texture = ExtResource("2_grrlh")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_0i4oc"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_grrlh")
-sources/1 = SubResource("TileSetAtlasSource_0i4oc")
-
-[node name="Main" type="Node2D" unique_id=590637979]
-
-[node name="Ground" type="TileMapLayer" parent="." unique_id=389873828]
-z_index = -1
-position = Vector2(0, 1)
-tile_set = SubResource("TileSet_0i4oc")
-script = ExtResource("3_grrlh")
+[node name="Ground" parent="." unique_id=1482086987 instance=ExtResource("1_53q0u")]
+position = Vector2(0, 3)
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1206554783 instance=ExtResource("2_pjrb6")]

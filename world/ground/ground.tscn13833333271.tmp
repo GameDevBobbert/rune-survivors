@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cebeyl21v2xg8"]
 
+[ext_resource type="Script" uid="uid://dd5qyo0rlcdha" path="res://world/ground/ground.gd" id="1_mvgdv"]
 [ext_resource type="Texture2D" uid="uid://cnp5u45dcnskm" path="res://world/ground/Ground.png" id="2_7c0ko"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7c0ko"]
@@ -11,23 +12,23 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_7c0ko")
 
-[sub_resource type="GDScript" id="GDScript_mvgdv"]
-script/source = "extends TileMapLayer
-
-var player: Node2D
-
-func _ready() -> void:
-	player = get_tree().get_first_node_in_group(\"player\")
-	
-	if player == null:
-		print(\"Player not found\")
-		return
-
-	print(\"Found player: \", player.name)
-"
-
 [node name="Ground" type="Node2D" unique_id=101497184]
+script = ExtResource("1_mvgdv")
+player_path = null
+tile_size = null
+chunk_size = null
+load_radius = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=645069362]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("2_7c0ko")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="BaseLayer" type="TileMapLayer" parent="." unique_id=1384451821]
 tile_set = SubResource("TileSet_78dhp")
-script = SubResource("GDScript_mvgdv")
+
+[node name="DetailsLayer" type="TileMapLayer" parent="." unique_id=1755015345]
+tile_set = SubResource("TileSet_78dhp")
