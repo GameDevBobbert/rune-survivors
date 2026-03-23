@@ -41,7 +41,7 @@ offset_right = 361.0
 offset_bottom = 206.0
 text = "Damage: 0"
 
-[node name="UpgradeLabel" type="Label" parent="CanvasLayer" unique_id=1533333069]
+[node name="Upgradelabel" type="Label" parent="CanvasLayer" unique_id=1533333069]
 offset_left = 279.0
 offset_top = 206.0
 offset_right = 403.0

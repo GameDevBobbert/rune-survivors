@@ -1,7 +1,7 @@
 class_name HealthComponent
 extends Node
 
-signal died
+signal died(owner: Node)
 signal health_changed(current_health: int)
 
 @export var max_health: int = 10
@@ -17,4 +17,4 @@ func take_damage(amount: int) -> void:
 	health_changed.emit(current_health)
 
 	if current_health <= 0:
-		died.emit()
+		died.emit(owner)

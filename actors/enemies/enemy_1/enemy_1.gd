@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var health: HealthComponent = $HealthComponent
 @onready var combat: CombatComponent = $CombatComponent
 @onready var hitbox: Area2D = $Hitbox
+@onready var aim_point: Marker2D = $AimPoint
 @onready var damage_timer: Timer = $DamageTimer
 
 @export var stop_distance: float = 10.0
@@ -56,6 +57,9 @@ func _on_damage_timer_timeout() -> void:
 	if player_in_hitbox != null and is_instance_valid(player_in_hitbox):
 		combat.deal_damage(player_in_hitbox)
 
-func _on_died() -> void:
-	print("Enemy died")
+func _on_died(dead_owner: Node) -> void:
+	var game_manager = get_tree().get_first_node_in_group("game_manager")
+	if game_manager != null:
+		game_manager.register_kill()
+
 	queue_free()

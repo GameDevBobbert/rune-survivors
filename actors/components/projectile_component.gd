@@ -3,14 +3,17 @@ extends Node
 @export var projectile_scene: PackedScene
 @export var projectile_speed: float = 250.0
 @export var projectile_damage: float = 2.0
-@export var fire_rate: float = 1.0
+@export var attack_speed: float = 1.0
 
 @onready var timer: Timer = $FireTimer
 
 func _ready() -> void:
-	timer.wait_time = fire_rate
+	timer.wait_time = attack_speed_calc(attack_speed)
 	timer.timeout.connect(_on_fire_timer_timeout)
 	timer.start()
+	
+	print("Attack speed: ", attack_speed)
+	print("Timer wait_time: ", attack_speed_calc(attack_speed))
 
 func _on_fire_timer_timeout() -> void:
 	shoot()
@@ -21,24 +24,24 @@ func shoot() -> void:
 
 	var enemy = get_nearest_enemy()
 	if enemy == null:
-		print("No enemy found")
 		return
 
 	var projectile := projectile_scene.instantiate() as Projectile
 	if projectile == null:
 		return
 
-	get_tree().current_scene.add_child(projectile)
-
 	var owner = get_parent() as Node2D
 	if owner == null:
 		return
 
+	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = owner.global_position
 
-	var direction = (enemy.global_position - projectile.global_position).normalized()
+	var target_position = enemy.aim_point.global_position
+	var direction = (target_position - projectile.global_position).normalized()
+
 	projectile.setup(direction, projectile_speed, projectile_damage)
-	
+
 func get_nearest_enemy() -> Enemy:
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	var nearest_enemy: Enemy = null
@@ -59,3 +62,9 @@ func get_nearest_enemy() -> Enemy:
 			nearest_enemy = enemy
 
 	return nearest_enemy
+
+func attack_speed_calc(attack_speed: float) -> float:
+	if attack_speed <= 0.0:
+		return 1.0
+
+	return 1.0 / attack_speed

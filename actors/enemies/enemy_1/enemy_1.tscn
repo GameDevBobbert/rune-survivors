@@ -45,3 +45,6 @@ shape = SubResource("RectangleShape2D_0opex")
 
 [node name="DamageTimer" type="Timer" parent="." unique_id=1893037809]
 wait_time = 0.5
+
+[node name="AimPoint" type="Marker2D" parent="." unique_id=1738201509]
+position = Vector2(20, 20)
