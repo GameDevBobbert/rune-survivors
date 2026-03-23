@@ -4,7 +4,6 @@ signal gold_changed(value)
 signal kills_changed(value)
 signal damage_changed(value)
 signal upgrade_progress_changed(value)
-signal gold_added(amount, world_position)
 
 @export var kills_per_upgrade: int = 5
 @export var damage_increase_per_upgrade: int = 1
@@ -43,7 +42,14 @@ func apply_damage_upgrade() -> void:
 func add_gold(spawn_position: Vector2, amount: int) -> void:
 	gold += amount
 	gold_changed.emit(gold)
-	gold_added.emit(amount, spawn_position)
+
+	if gold_popup_scene != null:
+		var popup := gold_popup_scene.instantiate() as Node2D
+		get_tree().current_scene.add_child(popup)
+		popup.global_position = spawn_position
+
+		if popup.has_method("set_amount"):
+			popup.set_amount(amount)
 
 func spend_gold(amount: int) -> void:
 	gold -= amount
