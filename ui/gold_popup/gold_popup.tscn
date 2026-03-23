@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d36vkciipned2"]
+
+[ext_resource type="Script" uid="uid://cgshv52t8vjqi" path="res://ui/gold_popup/gold_popup.gd" id="1_n4l72"]
+
+[node name="GoldPopup" type="Node2D" unique_id=703301615]
+script = ExtResource("1_n4l72")
+
+[node name="Label" type="Label" parent="." unique_id=1588948436]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+x Gold"

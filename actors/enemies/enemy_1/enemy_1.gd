@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var damage_timer: Timer = $DamageTimer
 
 @export var stop_distance: float = 10.0
+@export var gold_value: int = 1
 
 var player: Node2D
 var player_in_hitbox: Node = null
@@ -58,8 +59,5 @@ func _on_damage_timer_timeout() -> void:
 		combat.deal_damage(player_in_hitbox)
 
 func _on_died(dead_owner: Node) -> void:
-	var game_manager = get_tree().get_first_node_in_group("game_manager")
-	if game_manager != null:
-		game_manager.register_kill()
-
+	GameManager.register_kill(global_position, gold_value)
 	queue_free()

@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cebeyl21v2xg8" path="res://world/ground/ground.tscn" id="1_53q0u"]
 [ext_resource type="PackedScene" uid="uid://by3n4jbqh5n68" path="res://actors/player/player.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://dpt7hub0xp5eb" path="res://actors/enemies/spawner/spawner.tscn" id="3_xwkvk"]
-[ext_resource type="Script" uid="uid://bwrratrte4yra" path="res://ui/game_manager.gd" id="4_c651c"]
+[ext_resource type="Script" uid="uid://bwj5ifw00pk0d" path="res://ui/ui.gd" id="5_3wy1v"]
+[ext_resource type="PackedScene" uid="uid://dy40akjemvmb0" path="res://ui/inventory/inventory.tscn" id="6_kfbq2"]
 
 [node name="Main" type="Node" unique_id=354906407]
 
@@ -22,28 +23,37 @@ position = Vector2(576, 324)
 spawn_radius = 200.0
 spawn_interval = 1.0
 
-[node name="GameManager" type="Node" parent="." unique_id=406567808]
-script = ExtResource("4_c651c")
+[node name="GameStats" type="CanvasLayer" parent="." unique_id=567811485]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=567811485]
-
-[node name="KillLabel" type="Label" parent="CanvasLayer" unique_id=222781582]
+[node name="KillLabel" type="Label" parent="GameStats" unique_id=222781582]
 offset_left = 279.0
 offset_top = 160.0
 offset_right = 319.0
 offset_bottom = 183.0
 text = "Kills: 0"
 
-[node name="DamageLabel" type="Label" parent="CanvasLayer" unique_id=1080432844]
+[node name="DamageLabel" type="Label" parent="GameStats" unique_id=1080432844]
 offset_left = 279.0
 offset_top = 183.0
 offset_right = 361.0
 offset_bottom = 206.0
 text = "Damage: 0"
 
-[node name="UpgradeLabel" type="Label" parent="CanvasLayer" unique_id=1533333069]
+[node name="UpgradeLabel" type="Label" parent="GameStats" unique_id=1533333069]
 offset_left = 279.0
 offset_top = 206.0
 offset_right = 403.0
 offset_bottom = 229.0
 text = "Next upgrade: 5"
+
+[node name="GoldLabel" type="Label" parent="GameStats" unique_id=1429203807]
+offset_left = 279.0
+offset_top = 239.0
+offset_right = 403.0
+offset_bottom = 262.0
+text = "Gold: 0"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=590806786]
+process_mode = 3
+script = ExtResource("5_3wy1v")
+inventory_scene = ExtResource("6_kfbq2")
