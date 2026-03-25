@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bb4pg20ccox3s" path="res://actors/player/Chuk_front3.png" id="8_lsln6"]
 [ext_resource type="Texture2D" uid="uid://dv7lkcnlbhge4" path="res://actors/player/Chuk_front4.png" id="9_hiosj"]
 [ext_resource type="Texture2D" uid="uid://ftih0afj6pjd" path="res://actors/player/Chuk_front2.png" id="10_ssdk0"]
-[ext_resource type="Script" uid="uid://diixoh4vhrl70" path="res://weapons/components/weapon_switcher.gd" id="11_hiosj"]
+[ext_resource type="Script" uid="uid://diixoh4vhrl70" path="res://weapons/systems/weapon_switcher.gd" id="11_hiosj"]
 [ext_resource type="PackedScene" uid="uid://cfkwjfifbtl5i" path="res://weapons/ranged/weapon_1/weapon_1.tscn" id="12_7aotg"]
 [ext_resource type="PackedScene" uid="uid://b4frt50oxqinl" path="res://weapons/ranged/weapon_2/weapon_2.tscn" id="13_7aotg"]
 

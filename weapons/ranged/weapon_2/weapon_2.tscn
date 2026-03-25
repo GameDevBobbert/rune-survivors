@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://b4frt50oxqinl"]
 
-[ext_resource type="Script" uid="uid://b5a8evqs8fdo1" path="res://weapons/base/weapon_base.gd" id="1_6h3o7"]
 [ext_resource type="Texture2D" uid="uid://b4ucitpmlvf61" path="res://weapons/ranged/weapon_1/gun.png" id="1_3754w"]
+[ext_resource type="Script" uid="uid://ck7gbx3kq8xb4" path="res://weapons/base/ranged_weapon.gd" id="1_krtux"]
 [ext_resource type="PackedScene" uid="uid://bhp1oketye6g5" path="res://weapons/projectiles/bullet/bullet.tscn" id="2_ht8lv"]
 
 [node name="Weapon2" type="Node2D" unique_id=2100775282]
-script = ExtResource("1_6h3o7")
+script = ExtResource("1_krtux")
 projectile_scene = ExtResource("2_ht8lv")
+damage = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=28358194]
 texture_filter = 1
