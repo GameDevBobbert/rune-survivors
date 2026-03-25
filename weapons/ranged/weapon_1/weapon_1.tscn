@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cfkwjfifbtl5i"]
+
+[ext_resource type="Texture2D" uid="uid://b4ucitpmlvf61" path="res://weapons/ranged/weapon_1/gun.png" id="1_8tthl"]
+[ext_resource type="Script" uid="uid://b5a8evqs8fdo1" path="res://weapons/base/weapon_base.gd" id="1_b7i5k"]
+[ext_resource type="PackedScene" uid="uid://bhp1oketye6g5" path="res://weapons/projectiles/bullet/bullet.tscn" id="2_wfc20"]
+
+[node name="PistolWeapon" type="Node2D" unique_id=2134812193]
+script = ExtResource("1_b7i5k")
+projectile_scene = ExtResource("2_wfc20")
+projectile_damage = 1.0
+attack_speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1752384782]
+texture_filter = 1
+texture = ExtResource("1_8tthl")
+
+[node name="NozzlePoint" type="Marker2D" parent="." unique_id=1632209932]
+position = Vector2(8, 0)
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1947792964]

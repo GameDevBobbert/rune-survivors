@@ -5,12 +5,14 @@
 [ext_resource type="Script" uid="uid://decsjf41gamm5" path="res://actors/components/movement_component.gd" id="3_6p1w3"]
 [ext_resource type="Script" uid="uid://dmtlts7dkfixj" path="res://actors/components/health_component.gd" id="4_15y17"]
 [ext_resource type="Script" uid="uid://bpf0ufqu82314" path="res://actors/components/combat_component.gd" id="5_bop6h"]
+[ext_resource type="Script" uid="uid://bkuws7ynyv0vd" path="res://actors/components/projectile_component.gd" id="6_15y17"]
+[ext_resource type="PackedScene" uid="uid://ddarfc3t6wdxl" path="res://weapons/projectile/projectile.tscn" id="7_bop6h"]
 [ext_resource type="Texture2D" uid="uid://bb4pg20ccox3s" path="res://actors/player/Chuk_front3.png" id="8_lsln6"]
 [ext_resource type="Texture2D" uid="uid://dv7lkcnlbhge4" path="res://actors/player/Chuk_front4.png" id="9_hiosj"]
 [ext_resource type="Texture2D" uid="uid://ftih0afj6pjd" path="res://actors/player/Chuk_front2.png" id="10_ssdk0"]
-[ext_resource type="Script" uid="uid://diixoh4vhrl70" path="res://weapons/components/weapon_switcher.gd" id="11_hiosj"]
-[ext_resource type="PackedScene" uid="uid://cfkwjfifbtl5i" path="res://weapons/ranged/weapon_1/weapon_1.tscn" id="12_7aotg"]
-[ext_resource type="PackedScene" uid="uid://b4frt50oxqinl" path="res://weapons/ranged/weapon_2/weapon_2.tscn" id="13_7aotg"]
+[ext_resource type="Script" uid="uid://diixoh4vhrl70" path="res://actors/components/weapon_component.gd" id="11_hiosj"]
+[ext_resource type="PackedScene" uid="uid://cfkwjfifbtl5i" path="res://weapons/weapon_1/weapon_1.tscn" id="12_7aotg"]
+[ext_resource type="PackedScene" uid="uid://b4frt50oxqinl" path="res://weapons/weapon_2/weapon_2.tscn" id="13_7aotg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(24, 32.5)
@@ -74,7 +76,18 @@ script = ExtResource("4_15y17")
 script = ExtResource("5_bop6h")
 damage = 5
 
-[node name="WeaponSwitcher" type="Node" parent="." unique_id=1331108119]
+[node name="ProjectileComponent" type="Node" parent="." unique_id=1084447826]
+script = ExtResource("6_15y17")
+projectile_scene = ExtResource("7_bop6h")
+projectile_speed = 300.0
+projectile_damage = 5.0
+attack_speed = 2.0
+
+[node name="FireTimer" type="Timer" parent="ProjectileComponent" unique_id=1640236853]
+
+[node name="WeaponSprite2D" type="Sprite2D" parent="." unique_id=1554073789]
+
+[node name="WeaponComponent" type="Node" parent="." unique_id=1331108119]
 script = ExtResource("11_hiosj")
 weapon_1_scene = ExtResource("12_7aotg")
 weapon_2_scene = ExtResource("13_7aotg")
