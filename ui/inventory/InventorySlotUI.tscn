@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cdkm82euegrcv"]
+
+[sub_resource type="GDScript" id="GDScript_iv7dk"]
+script/source = "extends Panel
+
+@onready var icon_rect: TextureRect = $Icon
+@onready var amount_label: Label = $AmountLabel
+
+var slot_data: InventorySlot = null
+
+func set_slot_data(data: InventorySlot) -> void:
+	slot_data = data
+	refresh()
+
+func refresh() -> void:
+	if slot_data == null or slot_data.is_empty():
+		icon_rect.texture = null
+		amount_label.text = \"\"
+		return
+
+	icon_rect.texture = slot_data.item.icon
+	amount_label.text = str(slot_data.amount)
+"
+
+[node name="InventorySlotUI" type="Panel" unique_id=1277342787]
+script = SubResource("GDScript_iv7dk")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1224428841]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1156099082]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cmadwceb1c3fe"]
+
+[sub_resource type="GDScript" id="GDScript_mjk5w"]
+script/source = "extends Control
+
+@export var inventory_data: InventoryData
+@export var slot_scene: PackedScene
+
+@onready var grid: GridContainer = $Panel/GridContainer
+
+func _ready() -> void:
+	if inventory_data != null:
+		inventory_data.inventory_changed.connect(refresh)
+
+	refresh()
+
+func refresh() -> void:
+	for child in grid.get_children():
+		child.queue_free()
+
+	if inventory_data == null:
+		return
+
+	for slot in inventory_data.slots:
+		var slot_ui := slot_scene.instantiate()
+		grid.add_child(slot_ui)
+		slot_ui.set_slot_data(slot)
+"
+
+[node name="InventoryUI" type="Control" unique_id=1636311914]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_mjk5w")
+
+[node name="Panel" type="Panel" parent="." unique_id=1537576886]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1565102348]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

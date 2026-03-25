@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dy40akjemvmb0"]
+
+[ext_resource type="Script" uid="uid://cjwgsw558bni1" path="res://ui/inventory/inventory.gd" id="1_t68fq"]
+
+[node name="Inventory" type="Control" unique_id=727981180]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_t68fq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=207898622]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.17254902, 0.42352942, 0.30980393, 0.45490196)
+
+[node name="Label" type="Label" parent="." unique_id=575549270]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 51.0
+offset_right = 460.0
+offset_bottom = 74.0
+scale = Vector2(6.14954, 2.3702016)
+text = "PAUSED"

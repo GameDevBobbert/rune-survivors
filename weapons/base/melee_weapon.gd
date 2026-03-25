@@ -1,6 +1,8 @@
 class_name MeleeWeapon
 extends WeaponBase
 
+@export var attack_range: float = 250.0
+
 func attack() -> void:
 	var enemy := _get_enemy_in_range()
 	if enemy == null:
